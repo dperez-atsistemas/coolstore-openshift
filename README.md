@@ -2,8 +2,8 @@
 
 ### Deploy CoolStore Microservices with CI/CD
 In order to deploy the complete demo infrastructure for demonstrating Microservices, CI/CD, 
-agile integrations and more, either order the demo via RHPDS or use the following script to provision the demo
-on any OpenShift environment:
+agile integrations and more, use the following script to provision the demo
+on an OpenShift environment (Tested on 3.11):
 
 #### Prerequisites
 
@@ -29,24 +29,9 @@ The following imagestreams should be installed on OpenShift:
 ```
 $ git clone https://github.com/siamaksade/openshift-demos-ansible.git
 $ cd openshift-demos-ansible
-$ git checkout ocp-3.11
-$ oc login http://openshiftmaster
-$ ansible-galaxy install -r playbooks/coolstore/requirements.yml
-$ ansible-playbook playbooks/coolstore/msa-cicd-eap-min.yml
+$ oc login <host>
+$ ansible-playbook playbooks/coolstore/msa-cicd-eap-full.yml -e openshift_master=$(oc whoami --show-server)
 ```
-
-### Run Playbooks Locally (Docker installed)
-
-* Install Docker
-* Run the playbooks
-
-```
-$ oc login http://openshiftmaster
-$ docker run --rm -it siamaksade/openshift-demos-ansible:ocp-3.11 playbooks/coolstore/msa-cicd-eap-min.yml \
-      -e "openshift_master=$(oc whoami --show-server)" \
-      -e "oc_token=$(oc whoami -t)"
-```
-
 
 ### Playbooks
 
@@ -78,10 +63,7 @@ $ ansible-playbook playbooks/coolstore/msa-min.yml -e "github_ref=ocp-3.11 ephem
 | `project_suffix`     | demo      | A suffix to be added to all project names e.g. cicd-demo                                                               |
 | `ephemeral`          | false     | If set to true, all pods will be deployed without persistent storage                                                   |
 | `maven_mirror_url`   | false     | Maven repository for Java S2I builds. If empty, Sonatype Nexus gets deployed and used                                  |
-| `github_account`     | master    | GitHub account to deploy from in forked: https://github.com/[github-account]/coolstore-microservice                    |
-| `github_ref`         | master    | GitHub branch to deploy from: https://github.com/jbossdemocentral/coolstore-microservice                               |
-| `project_admin`      | none      | OpenShift user to be assigned as the project admin. Default is the logged-in user                                      |
-| `deploy_guides`      | true      | Deploy demo guides as a pod in the CI/CD project                                                                       |
+| `github_account`     | master    | GitHub account to deploy from in forked: https://github.com/[github-account]/coolstore-microservice                                                                                         |
 
 
 For a list of all options, check [demo variables](playbooks/coolstore/group_vars/all)
