@@ -38,7 +38,7 @@ ephemeral: false
 
 maven_mirror_url:
 
-deploy_guides: true
+deploy_guides: false
 
 prebuilt_images_project_name: coolstore-image-builds
 
