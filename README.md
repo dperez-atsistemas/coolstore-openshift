@@ -1,5 +1,4 @@
 # OpenShift Demos Ansible Roles and Playbooks
-[![Build Status](https://travis-ci.org/siamaksade/openshift-demos-ansible.svg?branch=master)](https://travis-ci.org/siamaksade/openshift-demos-ansible)
 
 ### Deploy CoolStore Microservices with CI/CD
 In order to deploy the complete demo infrastructure for demonstrating Microservices, CI/CD, 
@@ -48,30 +47,12 @@ $ docker run --rm -it siamaksade/openshift-demos-ansible:ocp-3.11 playbooks/cool
       -e "oc_token=$(oc whoami -t)"
 ```
 
-### Run Playbooks on OpenShift (with cluster admin)
-
-The [provided templates](helpers/coolstore-ansible-installer.yaml) creates an OpenShift Job to run 
-the Ansible playbooks. Check out the template for the complete list of parameters available.
-
-  ```
-  $ oc login -u system:admin
-  $ oc new-project demo-installer
-  $ oc adm policy add-cluster-role-to-user cluster-admin system:serviceaccount:demo-installer:default
-  
-  $ oc new-app -f helpers/coolstore-ansible-installer.yaml \
-      --param=DEMO_NAME=msa-full \
-      --param=PROJECT_ADMIN=developer \
-      --param=COOLSTORE_GITHUB_REF=ocp-3.11
-      --param=ANSIBLE_PLAYBOOKS_VERSION=ocp-3.11
-
-  $ oc logs -f jobs/coolstore-ansible-installer
-  ```
 
 ### Playbooks
 
 **CoolStore Demo**
 
-Demo repository: https://github.com/jbossdemocentral/coolstore-microservice
+Demo repository: https://github.com/pacmanmulet/coolstore-microservice
 
 | Playbook                                                      | Description                                                             | Memory     | CPU     |
 |---------------------------------------------------------------|-------------------------------------------------------------------------|------------|---------|
@@ -80,17 +61,6 @@ Demo repository: https://github.com/jbossdemocentral/coolstore-microservice
 | [coolstore/msa-cicd-eap-min.yml](playbooks/coolstore/msa-cicd-eap-min.yml)  | Deploys CoolStore with CI/CD and min services (Dev-Prod)                | 8 GB       | 2 cores |
 | [coolstore/msa-cicd-eap-full.yml](playbooks/coolstore/msa-cicd-eap-full.yml)| Deploys CoolStore with CI/CD and all services (Dev-Test-Prod)           | 20 GB      | 8 cores |
 | [coolstore/undeploy.yml](playbooks/coolstore/undeploy.yml)                  | Delete the demo                                                         | -          | -       |
-
-
-**Monolith CI/CD Demo**
-
-Demo repisotory: https://github.com/OpenShiftDemos/openshift-cd-demo
-
-| Playbook                               | Description                 | Memory     | CPU     |
-|----------------------------------------|-----------------------------|------------|---------|
-| [cd/deploy.yml](playbooks/cd/deploy.yml)      | Deploys Monolith CI/CD demo | 8 GB       | 2 cores |
-| [cd/undeploy.yml](playbooks/cd/undeploy.yml)  | Delete the demo             | -          | -       |
-
 
 ### Variables
 
