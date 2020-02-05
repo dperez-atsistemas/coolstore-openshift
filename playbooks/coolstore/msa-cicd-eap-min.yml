@@ -71,7 +71,7 @@
         prune_builds_selector: "comp-required!=true,app!=inventory"
         disable_stage_project: true
         src_github_account: "{{ github_account }}"
-        src_github_ref: stable-{{ github_ref }}
+        src_github_ref: "{{ github_ref }}"
       tags: demo
 
     # verify deployed successfully

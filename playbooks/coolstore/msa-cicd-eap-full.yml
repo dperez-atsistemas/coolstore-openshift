@@ -80,7 +80,7 @@
         prune_deployments_selector_prod: ""
         prune_deployments_selector_stage: "comp-required!=true,app!=inventory"
         src_github_account: "{{ github_account }}"
-        src_github_ref: stable-{{ github_ref }}
+        src_github_ref: "{{ github_ref }}"
 
       tags: demo
 
