@@ -50,13 +50,6 @@ curl http://rating:8080/api/rating/329299
 curl http://review:8080/api/review/329299
 ```
 
-Deploy Demo: CoolStore Microservices with CI/CD 
-================
-
-Use the Ansible deployer for deploying the CoolStore demos: 
-https://github.com/siamaksade/openshift-demos-ansible
-
-
 Troubleshooting
 ================
 * If you see an error like `An error occurred while starting the build.imageStream ...` it might be due to RHEL or JBoss imagestreams not being installed on your OpenShift environment. Contact the OpenShift admin to install these imagestreams:
