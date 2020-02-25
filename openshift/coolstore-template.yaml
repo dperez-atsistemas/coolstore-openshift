@@ -57,7 +57,7 @@ objects:
           value: ${BOWER_MIRROR}
         from:
           kind: ImageStreamTag
-          name: nodejs:4
+          name: nodejs:8
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: Source
     triggers:
@@ -501,7 +501,7 @@ objects:
         - inventory-postgresql
         from:
           kind: ImageStreamTag
-          name: postgresql:latest
+          name: postgresql:9.6
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: ImageChange
     - type: ConfigChange
@@ -1526,7 +1526,7 @@ objects:
         - review-postgresql
         from:
           kind: ImageStreamTag
-          name: postgresql:latest
+          name: postgresql:9.6
           namespace: ${IMAGE_STREAM_NAMESPACE}
       type: ImageChange
     - type: ConfigChange
@@ -1788,11 +1788,11 @@ parameters:
   displayName: Git source repository
   name: GIT_URI
   required: true
-  value: https://github.com/jbossdemocentral/coolstore-microservice
+  value: https://github.com/dperez-atsistemas/coolstore-openshift
 - displayName: Git branch/tag reference
   name: GIT_REF
   required: true
-  value: stable-ocp-3.10
+  value: ocp-4
 - description: Maven mirror url. If nexus is deployed locally, use nexus url (e.g. http://nexus.ci:8081/content/groups/public/)
   displayName: Maven mirror url
   name: MAVEN_MIRROR_URL
