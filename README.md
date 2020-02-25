@@ -4,10 +4,6 @@ This is an example demo showing a retail store consisting of several microservic
 
 It demonstrates how to wire up small microservices into a larger application using microservice architectural principals.
 
-Development Branch
-------------------
-:warning: **Please note that master is our development branch and may contain untested features.** For stable branch use a version branch like `1.2.x`
-
 Services
 --------
 There are several individual microservices and infrastructure components that make up this app:
@@ -29,7 +25,6 @@ Prerequisites
 ================
 In order to deploy the CoolStore microservices application, you need an OpenShift environment with
 * RHEL and JBoss imagestreams installed (check _Troubleshooting_ section for details)
-* Nexus Repository (or other maven repository managers) with [proxy repositories](https://books.sonatype.com/nexus-book/reference/confignx-sect-manage-repo.html) defined for [JBoss Enterprise Maven Repository](https://access.redhat.com/maven-repository)
 
 Deploy CoolStore Microservices Application
 ================
@@ -49,13 +44,6 @@ curl http://cart:8080/api/cart/FOO
 curl http://rating:8080/api/rating/329299
 curl http://review:8080/api/review/329299
 ```
-
-Deploy Demo: CoolStore Microservices with CI/CD 
-================
-
-Use the Ansible deployer for deploying the CoolStore demos: 
-https://github.com/siamaksade/openshift-demos-ansible
-
 
 Troubleshooting
 ================
