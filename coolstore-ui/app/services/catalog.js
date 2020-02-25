@@ -10,7 +10,7 @@ angular.module("app")
 	} else {
 		baseUrl = (COOLSTORE_CONFIG.API_ENDPOINT.startsWith("http://") ? COOLSTORE_CONFIG.API_ENDPOINT : "http://" + COOLSTORE_CONFIG.API_ENDPOINT + '.' + $location.host().replace(/^.*?\.(.*)/g,"$1")) + '/api/products';
 	}
-
+    baseUrl = "https://api-2445582949711.production.gw.apicast.io/products?user_key=6167941de39fe0002892669da8ee4562"
     factory.getProducts = function() {
 		var deferred = $q.defer();
         if (products) {
