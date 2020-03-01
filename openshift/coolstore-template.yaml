@@ -86,6 +86,10 @@ objects:
       spec:
         containers:
         - env:
+          - name: API_KEY
+            value: '?user_key=6167941de39fe0002892669da8ee4562'
+          - name: API_GW
+            value: 'https://api-2445582949711.production.gw.apicast.io'
           - name: COOLSTORE_GW_SERVICE
             value: coolstore-gw
           - name: HOSTNAME_HTTP
