@@ -17,7 +17,7 @@
     "request": "^2.74.0",
     "angular": "1.5.10",
     "bootstrap": "4.4.1",
-    "jquery": "3.4.1",
+    "jquery": "3.5.0",
     "patternfly": "3.17.0",
     "angular-patternfly": "3.17.0",
     "imagesloaded": "4.1.1",
